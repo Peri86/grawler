@@ -27,7 +27,7 @@ tier4 = []
 
 def crearxarxa(g):
 	try:
-	    re = g.write_pajek("xarxaprova4.net")
+	    re = g.write_pajek("xarxaprova.net")
 	except IOError:
 	    print 'Error', re
 	else:
@@ -76,9 +76,6 @@ def searchURL(url, depth, search, g, prof, urlant):
 
 			# find the links
 			contents = res.read()
-			#classe = contents.__class__.__name__
-			#print 'classe de contents:',classe
-			#print 'contents:'+contents
 			m = re.findall('href="(.*?)"', contents)
 
 			#ref = depth - (depth-1)
@@ -105,10 +102,6 @@ def searchURL(url, depth, search, g, prof, urlant):
 				if (href.startswith("/")):
 					href = "http://" + host + href
 
-				#print 'node trobat que pengen del hub'
-				#g.add_vertex(name=str(href),id=str(href))
-				#g.add_edge((str(urlant)),(str(href)))	
-
 
 				# follow the links
 				if (depth > 0):
@@ -131,10 +124,7 @@ def searchURL(url, depth, search, g, prof, urlant):
 		
 g = Graph(1)
 g.delete_vertices(0) #esborro el node inicial
-#g.add_vertex('hola')
-#g.add_vertex('adeu')
-#g.add_edge('hola','adeu')
-#print g
+
 
 urlant='' 
 prof = depth
@@ -146,8 +136,8 @@ print g
 crearxarxa(g)
 
 print 'trobat:',trobat
-print 'tier1:',tier1
-print 'tier2:',tier2
-print 'tier3:',tier1
-print 'tier4:',tier2
+#print 'tier1:',tier1
+#print 'tier2:',tier2
+#print 'tier3:',tier1
+#print 'tier4:',tier2
 creararxiu(trobat)
