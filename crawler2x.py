@@ -43,7 +43,7 @@ def dibuixar(g,trobat):
 	op = raw_input("yes,no\n")
 
 	if op == "yes":
-		plot(g,vertex_label=trobat,bbox=(0, 0, 1500, 1500))
+		plot(g,vertex_label=trobat,bbox=(0, 0, 2500, 2500))
 	else:
 		exit()
 	return
