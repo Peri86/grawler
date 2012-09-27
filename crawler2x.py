@@ -38,12 +38,12 @@ def crearxarxa(g):
 
 	return
 
-def dibuixar(g):
+def dibuixar(g,trobat):
 	print '\nWant to display the graph?\n'
-	op = raw_input("yes,no")
+	op = raw_input("yes,no\n")
 
 	if op == "yes":
-		plot(g)
+		plot(g,vertex_label=trobat,bbox=(0, 0, 1500, 1500))
 	else:
 		exit()
 	return
@@ -84,6 +84,7 @@ def searchURL(url, depth, search, g, prof, urlant):
 					print 'Trobat concepte al hub'
 					print 'prof i depth:',prof,depth
 					g.add_vertex(name=str(url),id=str(url))
+					trobat.append(url)
 					urlant = url
 				else:
 					print "Found " + search + " at " + url
@@ -133,6 +134,8 @@ searchURL(url, depth, search, g, prof, urlant)
 print g
 
 crearxarxa(g)
-dibuixar(g) #mostrar graph
 
 print 'trobat:',trobat
+
+dibuixar(g,trobat) #mostrar graph
+
