@@ -21,10 +21,16 @@ if (len(sys.argv) > 3):
 processed = []
 trobat = []
 
-
 def crearxarxa(g):
+	titol = ''
+	nom = raw_input("\nPlease, enter the name of the file to be saved\n")
+	if nom.__len__ > 1:
+		titol = nom
+	else:
+		print 'Error. Specify a name for the file'
+	
 	try:
-	    re = g.write_pajek("xarxaprova.net")
+	    re = g.write_pajek(titol+".net")
 	except IOError:
 	    print 'Error', re
 	else:
@@ -32,10 +38,14 @@ def crearxarxa(g):
 
 	return
 
-def creararxiu(text):
-	ar = open('xarxa.net','w')
-	ar.write(str(text))
-	ar.close()
+def dibuixar(g):
+	print '\nWant to display the graph?\n'
+	op = raw_input("yes,no")
+
+	if op == "yes":
+		plot(g)
+	else:
+		exit()
 	return
 
 
@@ -123,7 +133,6 @@ searchURL(url, depth, search, g, prof, urlant)
 print g
 
 crearxarxa(g)
+dibuixar(g) #mostrar graph
 
 print 'trobat:',trobat
-
-creararxiu(trobat)
