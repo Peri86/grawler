@@ -1,3 +1,3 @@
 Grawler
-Crawler that makes Graphs
+Crawler that makes graphs files
 =======
