@@ -20,10 +20,7 @@ if (len(sys.argv) > 3):
 
 processed = []
 trobat = []
-tier1 = []
-tier2 = []
-tier3 = []
-tier4 = []
+
 
 def crearxarxa(g):
 	try:
@@ -61,14 +58,6 @@ def searchURL(url, depth, search, g, prof, urlant):
 		# make the first request
 		print "crawling host: " + host + " path: " + path
 		conn = httplib.HTTPConnection(host)
-		if depth == 1:
-			tier1.append(host)
-		elif depth == 2:
-			tier2.append(host)
-		elif depth == 3:
-			tier3.append(host)
-		elif depth == 4:
-			tier4.append(host)
 
 		try: #Control d'errors
 			req = conn.request("GET", path)
@@ -136,8 +125,5 @@ print g
 crearxarxa(g)
 
 print 'trobat:',trobat
-#print 'tier1:',tier1
-#print 'tier2:',tier2
-#print 'tier3:',tier1
-#print 'tier4:',tier2
+
 creararxiu(trobat)
